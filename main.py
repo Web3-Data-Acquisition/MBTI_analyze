@@ -19,6 +19,7 @@ async def mbti_analysis(username: str):
 
         user_id = user_info["user_id"]
         user_name = user_info["user_name"]
+        print(f"username: {user_name}, user_id: {user_id}")
 
         try:
             user_data = await get_user_twitter_data_by_apidance(str(user_id))
@@ -26,19 +27,19 @@ async def mbti_analysis(username: str):
             loguru.logger.error(e)
             loguru.logger.error(traceback.format_exc())
             return False
-
+        print(f"user_data: {user_data}")
         try:
             result = await user_data_processing(user_data)
         except Exception as e:
             loguru.logger.error(e)
             loguru.logger.error(traceback.format_exc())
             return False
-        try:
-            data = await mbti_genai_analysis(result, user_name)
-        except Exception as e:
-            loguru.logger.error(e)
-            loguru.logger.error(traceback.format_exc())
-        print(data)
+        # try:
+        #     data = await mbti_genai_analysis(result, user_name)
+        # except Exception as e:
+        #     loguru.logger.error(e)
+        #     loguru.logger.error(traceback.format_exc())
+        print(result)
     except Exception as e:
         loguru.logger.error(e)
         loguru.logger.error(traceback.format_exc())
