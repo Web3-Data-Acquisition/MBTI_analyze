@@ -45,7 +45,7 @@ async def mbti_analysis(username: str):
 
 
 async def main():
-    name = "BillGates"
+    name = input("Please enter a username: ")
     result = await mbti_analysis(username=name)
     print(result)
 
