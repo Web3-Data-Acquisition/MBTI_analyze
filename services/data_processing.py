@@ -44,7 +44,6 @@ async def user_data_processing(user_data):
                                                                             full_text = legacy.get('full_text', None)
                                                                             text_list += str(
                                                                                 index_entrie + 1) + '.' + full_text + '\n'
-                                                                            print(text_list)
                                                 return text_list
         else:
             return None

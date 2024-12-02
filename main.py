@@ -38,7 +38,7 @@ async def mbti_analysis(username: str):
         except Exception as e:
             loguru.logger.error(e)
             loguru.logger.error(traceback.format_exc())
-        print(result)
+        print(data)
     except Exception as e:
         loguru.logger.error(e)
         loguru.logger.error(traceback.format_exc())
