@@ -27,18 +27,17 @@ async def mbti_analysis(username: str):
             loguru.logger.error(e)
             loguru.logger.error(traceback.format_exc())
             return False
-        print(f"user_data: {user_data}")
         try:
             result = await user_data_processing(user_data)
         except Exception as e:
             loguru.logger.error(e)
             loguru.logger.error(traceback.format_exc())
             return False
-        # try:
-        #     data = await mbti_genai_analysis(result, user_name)
-        # except Exception as e:
-        #     loguru.logger.error(e)
-        #     loguru.logger.error(traceback.format_exc())
+        try:
+            data = await mbti_genai_analysis(result, user_name)
+        except Exception as e:
+            loguru.logger.error(e)
+            loguru.logger.error(traceback.format_exc())
         print(result)
     except Exception as e:
         loguru.logger.error(e)
