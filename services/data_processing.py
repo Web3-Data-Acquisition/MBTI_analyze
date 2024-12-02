@@ -23,8 +23,8 @@ async def user_data_processing(user_data):
                                         if instruction.get('type') == "TimelineAddEntries":
                                             entries = instruction.get('entries', None)
                                             if entries:
+                                                text_list = ""
                                                 for index_entrie, entrie in enumerate(entries):
-                                                    text_list = ""
                                                     if index_entrie >= 5:
                                                         break
                                                     content = entrie.get('content', None)
@@ -44,7 +44,8 @@ async def user_data_processing(user_data):
                                                                             full_text = legacy.get('full_text', None)
                                                                             text_list += str(
                                                                                 index_entrie + 1) + '.' + full_text + '\n'
-                                                    return text_list
+                                                                            print(text_list)
+                                                return text_list
         else:
             return None
     except Exception as e:
